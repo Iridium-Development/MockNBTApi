@@ -2,11 +2,11 @@ package com.iridium.mocknbtapi;
 
 import org.bukkit.inventory.ItemStack;
 
-public class RealNBTItem implements NBTItem{
+public class RealNBTItem implements NBTItem {
 
     private de.tr7zw.changeme.nbtapi.NBTItem nbtItem;
 
-    public RealNBTItem(ItemStack itemStack){
+    public RealNBTItem(ItemStack itemStack) {
         nbtItem = new de.tr7zw.changeme.nbtapi.NBTItem(itemStack);
     }
 
@@ -48,5 +48,10 @@ public class RealNBTItem implements NBTItem{
     @Override
     public boolean getBoolean(String key) {
         return nbtItem.getBoolean(key);
+    }
+
+    @Override
+    public ItemStack getItem() {
+        return nbtItem.getItem();
     }
 }

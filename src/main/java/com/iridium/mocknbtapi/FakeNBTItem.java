@@ -1,9 +1,24 @@
 package com.iridium.mocknbtapi;
 
+import org.bukkit.inventory.ItemStack;
+
 import java.util.HashMap;
 
 public class FakeNBTItem implements NBTItem {
+    private final ItemStack itemStack;
     private final HashMap<String, Object> nbtData = new HashMap<>();
+    private final static HashMap<ItemStack, FakeNBTItem> fakeNBTItemHashMap = new HashMap<>();
+
+    public FakeNBTItem(ItemStack itemStack){
+        this.itemStack = itemStack;
+    }
+
+    public static FakeNBTItem getFakeNBTItem(ItemStack itemStack){
+        if(!fakeNBTItemHashMap.containsKey(itemStack)){
+            fakeNBTItemHashMap.put(itemStack, new FakeNBTItem(itemStack));
+        }
+        return fakeNBTItemHashMap.get(itemStack);
+    }
 
     @Override
     public void setString(String key, String value) {
@@ -43,5 +58,10 @@ public class FakeNBTItem implements NBTItem {
     @Override
     public boolean getBoolean(String key) {
         return (boolean) nbtData.get(key);
+    }
+
+    @Override
+    public ItemStack getItem() {
+        return itemStack;
     }
 }

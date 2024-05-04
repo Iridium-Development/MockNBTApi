@@ -1,5 +1,7 @@
 package com.iridium.mocknbtapi;
 
+import org.bukkit.inventory.ItemStack;
+
 public interface NBTItem {
     void setString(String key, String value);
 
@@ -16,4 +18,6 @@ public interface NBTItem {
     double getDouble(String key);
 
     boolean getBoolean(String key);
+
+    ItemStack getItem();
 }

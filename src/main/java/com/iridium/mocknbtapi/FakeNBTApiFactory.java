@@ -5,6 +5,6 @@ import org.bukkit.inventory.ItemStack;
 public class FakeNBTApiFactory implements NBTApiFactory{
     @Override
     public NBTItem getNBTItem(ItemStack itemStack) {
-        return new FakeNBTItem();
+        return FakeNBTItem.getFakeNBTItem(itemStack);
     }
 }
