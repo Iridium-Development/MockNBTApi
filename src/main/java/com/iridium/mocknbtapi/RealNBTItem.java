@@ -31,6 +31,11 @@ public class RealNBTItem implements NBTItem {
     }
 
     @Override
+    public void setObject(String key, Object value) {
+        nbtItem.setObject(key, value);
+    }
+
+    @Override
     public String getString(String key) {
         return nbtItem.getString(key);
     }
@@ -49,6 +54,12 @@ public class RealNBTItem implements NBTItem {
     public boolean getBoolean(String key) {
         return nbtItem.getBoolean(key);
     }
+
+    @Override
+    public <T> T getObject(String key, Class<T> type) {
+        return nbtItem.getObject(key, type);
+    }
+
 
     @Override
     public ItemStack getItem() {

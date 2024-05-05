@@ -9,12 +9,12 @@ public class FakeNBTItem implements NBTItem {
     private final HashMap<String, Object> nbtData = new HashMap<>();
     private final static HashMap<ItemStack, FakeNBTItem> fakeNBTItemHashMap = new HashMap<>();
 
-    public FakeNBTItem(ItemStack itemStack){
+    public FakeNBTItem(ItemStack itemStack) {
         this.itemStack = itemStack;
     }
 
-    public static FakeNBTItem getFakeNBTItem(ItemStack itemStack){
-        if(!fakeNBTItemHashMap.containsKey(itemStack)){
+    public static FakeNBTItem getFakeNBTItem(ItemStack itemStack) {
+        if (!fakeNBTItemHashMap.containsKey(itemStack)) {
             fakeNBTItemHashMap.put(itemStack, new FakeNBTItem(itemStack));
         }
         return fakeNBTItemHashMap.get(itemStack);
@@ -41,6 +41,11 @@ public class FakeNBTItem implements NBTItem {
     }
 
     @Override
+    public void setObject(String key, Object value) {
+        nbtData.put(key, value);
+    }
+
+    @Override
     public String getString(String key) {
         return (String) nbtData.get(key);
     }
@@ -58,6 +63,11 @@ public class FakeNBTItem implements NBTItem {
     @Override
     public boolean getBoolean(String key) {
         return (boolean) nbtData.get(key);
+    }
+
+    @Override
+    public <T> T getObject(String key, Class<T> type) {
+        return (T) nbtData.get(key);
     }
 
     @Override

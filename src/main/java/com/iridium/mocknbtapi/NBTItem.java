@@ -11,6 +11,8 @@ public interface NBTItem {
 
     void setBoolean(String key, boolean value);
 
+    void setObject(String key, Object value);
+
     String getString(String key);
 
     int getInteger(String key);
@@ -18,6 +20,8 @@ public interface NBTItem {
     double getDouble(String key);
 
     boolean getBoolean(String key);
+
+    <T> T getObject(String key, Class<T> type);
 
     ItemStack getItem();
 }
