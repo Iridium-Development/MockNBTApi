@@ -20,11 +20,11 @@ dependencies {
     implementation("de.tr7zw:item-nbt-api:2.12.4")
 
     // Other dependencies that are not required or already available at runtime
-    compileOnly("org.projectlombok:lombok:1.18.32")
+    compileOnly("org.projectlombok:lombok:1.18.34")
     compileOnly("org.spigotmc:spigot-api:1.20.6-R0.1-SNAPSHOT")
 
     // Enable lombok annotation processing
-    annotationProcessor("org.projectlombok:lombok:1.18.32")
+    annotationProcessor("org.projectlombok:lombok:1.18.34")
 
     // Test dependencies
     testImplementation(platform("org.junit:junit-bom:5.10.2"))
